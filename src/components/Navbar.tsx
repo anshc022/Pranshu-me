@@ -45,33 +45,46 @@ const Navbar = () => {
       <div className="header">
         <a href="/#" className="navbar-title" data-cursor="disable">
           <svg
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
+            width="42"
+            height="42"
+            viewBox="0 0 100 100"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect
-              x="1"
-              y="1"
-              width="38"
-              height="38"
-              rx="8"
+            {/* Outer hexagonal border */}
+            <polygon
+              points="50,2 93,27 93,73 50,98 7,73 7,27"
               stroke="white"
-              strokeWidth="1.5"
+              strokeWidth="2.5"
+              fill="none"
             />
-            <text
-              x="20"
-              y="26"
-              textAnchor="middle"
-              fill="white"
-              fontFamily="inherit"
-              fontWeight="700"
-              fontSize="16"
-              letterSpacing="1"
-            >
-              PC
-            </text>
+            {/* Inner accent line */}
+            <polygon
+              points="50,10 86,31 86,69 50,90 14,69 14,31"
+              stroke="rgba(255,255,255,0.15)"
+              strokeWidth="1"
+              fill="none"
+            />
+            {/* P letter - custom path */}
+            <path
+              d="M30 70 L30 30 L48 30 Q58 30 58 40 Q58 50 48 50 L30 50"
+              stroke="white"
+              strokeWidth="4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              fill="none"
+            />
+            {/* C letter - custom path */}
+            <path
+              d="M70 35 Q60 28 52 35 Q44 42 52 50 Q60 58 70 50"
+              stroke="white"
+              strokeWidth="4"
+              strokeLinecap="round"
+              fill="none"
+              transform="translate(12, 15) scale(0.85)"
+            />
+            {/* Decorative dot */}
+            <circle cx="72" cy="68" r="2.5" fill="white" />
           </svg>
         </a>
         <a
