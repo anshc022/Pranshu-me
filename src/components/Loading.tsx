@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./styles/Loading.css";
 import { useLoading } from "../context/LoadingProvider";
 
@@ -9,27 +9,32 @@ const Loading = ({ percent }: { percent: number }) => {
   const [loaded, setLoaded] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [clicked, setClicked] = useState(false);
-
-  if (percent >= 100) {
-    setTimeout(() => {
-      setLoaded(true);
-      setTimeout(() => {
-        setIsLoaded(true);
-      }, 1000);
-    }, 600);
-  }
+  const hasTriggered = useRef(false);
 
   useEffect(() => {
-    import("./utils/initialFX").then((module) => {
-      if (isLoaded) {
-        setClicked(true);
+    if (percent >= 100 && !hasTriggered.current) {
+      hasTriggered.current = true;
+      setTimeout(() => {
+        setLoaded(true);
         setTimeout(() => {
-          if (module.initialFX) {
-            module.initialFX();
-          }
+          setIsLoaded(true);
+        }, 1000);
+      }, 600);
+    }
+  }, [percent]);
+
+  useEffect(() => {
+    if (!isLoaded) return;
+    import("./utils/initialFX").then((module) => {
+      setClicked(true);
+      setTimeout(() => {
+        if (module.initialFX) {
+          module.initialFX();
+        }
+        setTimeout(() => {
           setIsLoading(false);
-        }, 900);
-      }
+        }, 500);
+      }, 900);
     });
   }, [isLoaded]);
 
@@ -46,7 +51,19 @@ const Loading = ({ percent }: { percent: number }) => {
     <>
       <div className="loading-header">
         <a href="/#" className="loader-title" data-cursor="disable">
-          Logo
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 120 120"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect x="3" y="3" width="114" height="114" rx="24" stroke="var(--backgroundColor)" strokeWidth="3" />
+            <line x1="28" y1="30" x2="28" y2="90" stroke="var(--backgroundColor)" strokeWidth="6" strokeLinecap="round" />
+            <path d="M28 30 L52 30 C64 30 64 54 52 54 L28 54" stroke="var(--backgroundColor)" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            <path d="M92 38 C78 24 58 28 56 48 C54 68 74 78 92 64" stroke="var(--backgroundColor)" strokeWidth="6" strokeLinecap="round" fill="none" />
+            <line x1="52" y1="82" x2="68" y2="38" stroke="rgba(11,8,12,0.25)" strokeWidth="2" strokeLinecap="round" />
+          </svg>
         </a>
         <div className={`loaderGame ${clicked && "loader-out"}`}>
           <div className="loaderGame-container">
