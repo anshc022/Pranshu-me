@@ -41,12 +41,12 @@ const Contact = () => {
               Linkedin <MdArrowOutward />
             </a>
             <a
-              href={personalInfo.social.twitter}
+              href={personalInfo.social.instagram}
               target="_blank"
               data-cursor="disable"
               className="contact-social"
             >
-              Twitter <MdArrowOutward />
+              Instagram <MdArrowOutward />
             </a>
 
           </div>
