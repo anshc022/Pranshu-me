@@ -1,5 +1,6 @@
 import { MdArrowOutward, MdCopyright } from "react-icons/md";
 import "./styles/Contact.css";
+import { personalInfo } from "../data/portfolioData";
 
 const Contact = () => {
   return (
@@ -10,21 +11,21 @@ const Contact = () => {
           <div className="contact-box">
             <h4>Email</h4>
             <p>
-              <a href="mailto:example@mail.com" data-cursor="disable">
-                example@mail.com
+              <a href={`mailto:${personalInfo.email}`} data-cursor="disable">
+                {personalInfo.email}
               </a>
             </p>
             <h4>Phone</h4>
             <p>
-              <a href="tel:+9199999999" data-cursor="disable">
-                +91 99999 99999
+              <a href={`tel:${personalInfo.phone.replace(/\s/g, "")}`} data-cursor="disable">
+                {personalInfo.phone}
               </a>
             </p>
           </div>
           <div className="contact-box">
             <h4>Social</h4>
             <a
-              href="https://github.com"
+              href={personalInfo.social.github}
               target="_blank"
               data-cursor="disable"
               className="contact-social"
@@ -32,7 +33,7 @@ const Contact = () => {
               Github <MdArrowOutward />
             </a>
             <a
-              href="https://www.linkedin.com"
+              href={personalInfo.social.linkedin}
               target="_blank"
               data-cursor="disable"
               className="contact-social"
@@ -40,28 +41,21 @@ const Contact = () => {
               Linkedin <MdArrowOutward />
             </a>
             <a
-              href="https://x.com"
+              href={personalInfo.social.twitter}
               target="_blank"
               data-cursor="disable"
               className="contact-social"
             >
               Twitter <MdArrowOutward />
             </a>
-            <a
-              href="https://www.instagram.com"
-              target="_blank"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Instagram <MdArrowOutward />
-            </a>
+
           </div>
           <div className="contact-box">
             <h2>
-              Designed and Developed <br /> by <span>Moncy Yohannan</span>
+              Designed and Developed <br /> by <span>{personalInfo.firstName} {personalInfo.lastName}</span>
             </h2>
             <h5>
-              <MdCopyright /> 2024
+              <MdCopyright /> 2025
             </h5>
           </div>
         </div>
