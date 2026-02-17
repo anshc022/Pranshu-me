@@ -357,6 +357,37 @@
   opacity: 0.7;
 }
 
+/* ─── WhatsApp Link ─── */
+.whatsapp-link {
+  grid-column: 1 / -1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #25d366;
+  font-family: "Geist", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 14px 24px;
+  border: 1px solid rgba(37, 211, 102, 0.25);
+  border-radius: 12px;
+  background: rgba(37, 211, 102, 0.06);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.whatsapp-link:hover {
+  background: rgba(37, 211, 102, 0.12);
+  border-color: rgba(37, 211, 102, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.15);
+}
+
+.confirmation-whatsapp {
+  margin-top: 16px;
+}
+
 /* ─── Responsive ─── */
 @media only screen and (max-width: 900px) {
   .booking-container h1 {
