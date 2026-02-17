@@ -48,9 +48,9 @@ const Booking = () => {
       name: formData.name,
       email: formData.email,
       phone: formData.phone || null,
-      business: formData.business || null,
-      date: formData.date,
-      time_slot: selectedSlot,
+      business_name: formData.business || null,
+      preferred_date: formData.date,
+      preferred_time: selectedSlot,
       message: formData.message || null,
     });
 
