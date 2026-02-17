@@ -1,6 +1,7 @@
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "../lib/supabase";
+import bookingHero from "../assets/booking-hero.svg";
 import "./styles/Booking.css";
 
 const TIME_SLOTS = [
@@ -91,9 +92,17 @@ const Booking = () => {
         <Link to="/">← BACK TO PORTFOLIO</Link>
       </div>
 
+      <div className="booking-hero">
+        <img src={bookingHero} alt="Booking illustration" />
+      </div>
+
       <div className="booking-container">
         {!submitted ? (
           <>
+            <div className="booking-badge">
+              <span className="dot"></span>
+              Available for Projects
+            </div>
             <h1>
               Book a <span>Free</span>
               <br />
