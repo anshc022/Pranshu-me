@@ -1,0 +1,215 @@
+.book-page {
+  min-height: 100vh;
+  background-color: var(--backgroundColor);
+  color: #eae5ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  font-family: "Geist", sans-serif;
+}
+
+.book-container {
+  max-width: 700px;
+  width: 100%;
+  position: relative;
+}
+
+.book-back-link {
+  display: inline-block;
+  margin-bottom: 30px;
+  font-size: 14px;
+  opacity: 0.5;
+  transition: opacity 0.3s, color 0.3s;
+}
+
+.book-back-link:hover {
+  opacity: 1;
+  color: var(--accentColor);
+}
+
+.book-header {
+  margin-bottom: 40px;
+}
+
+.book-header h1 {
+  font-size: 48px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0 0 12px 0;
+}
+
+.book-subtitle {
+  font-size: 16px;
+  opacity: 0.6;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.book-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.book-field label {
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.book-field input,
+.book-field select,
+.book-field textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: #eae5ec;
+  font-family: "Geist", sans-serif;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.book-field input:focus,
+.book-field select:focus,
+.book-field textarea:focus {
+  border-color: var(--accentColor);
+}
+
+.book-field input::placeholder,
+.book-field textarea::placeholder {
+  color: rgba(234, 229, 236, 0.25);
+}
+
+.book-field select option {
+  background: #0b080c;
+  color: #eae5ec;
+}
+
+.book-full {
+  margin-bottom: 24px;
+}
+
+.book-submit {
+  width: 100%;
+  padding: 14px;
+  background: var(--accentColor);
+  color: #0b080c;
+  border: none;
+  border-radius: 8px;
+  font-family: "Geist", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: opacity 0.3s, transform 0.2s;
+}
+
+.book-submit:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.book-submit:active {
+  transform: translateY(0);
+}
+
+.book-footer {
+  margin-top: 40px;
+  text-align: center;
+  opacity: 0.4;
+  font-size: 13px;
+}
+
+.book-footer p {
+  margin: 4px 0;
+}
+
+.book-footer a {
+  transition: color 0.3s;
+}
+
+.book-footer a:hover {
+  color: var(--accentColor);
+}
+
+/* Confirmation */
+.book-confirmation {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.book-check {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--accentColor);
+  color: #0b080c;
+  font-size: 32px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  animation: scaleIn 0.4s ease-out;
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.book-confirmation h2 {
+  font-size: 32px;
+  font-weight: 400;
+  margin: 0 0 16px 0;
+}
+
+.book-confirmation p {
+  font-size: 16px;
+  opacity: 0.6;
+  line-height: 1.6;
+  max-width: 440px;
+  margin: 0 auto 30px;
+}
+
+.book-back {
+  display: inline-block;
+  font-size: 14px;
+  opacity: 0.5;
+  transition: opacity 0.3s, color 0.3s;
+}
+
+.book-back:hover {
+  opacity: 1;
+  color: var(--accentColor);
+}
+
+/* Responsive */
+@media only screen and (max-width: 600px) {
+  .book-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .book-header h1 {
+    font-size: 32px;
+  }
+}

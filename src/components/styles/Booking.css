@@ -1,0 +1,255 @@
+.booking-page {
+  min-height: 100vh;
+  background-color: var(--backgroundColor);
+  color: #eae5ec;
+  font-family: "Geist", sans-serif;
+  overflow-x: hidden;
+}
+
+.booking-header {
+  display: flex;
+  max-width: var(--cMaxWidth);
+  width: var(--cWidth);
+  justify-content: space-between;
+  padding: 20px 0px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.booking-header a {
+  color: #ccc;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.booking-header a:hover {
+  color: var(--accentColor);
+}
+
+.booking-container {
+  max-width: 900px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  padding: 60px 0 100px;
+}
+
+.booking-container h1 {
+  font-size: 56px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+  line-height: 1.1;
+}
+
+.booking-container h1 span {
+  color: var(--accentColor);
+}
+
+.booking-pitch {
+  font-size: 18px;
+  line-height: 1.7;
+  opacity: 0.7;
+  max-width: 700px;
+  margin-bottom: 50px;
+}
+
+.booking-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.booking-form .full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 14px 16px;
+  color: #eae5ec;
+  font-family: "Geist", sans-serif;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--accentColor);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-group select option {
+  background: #1a1520;
+  color: #eae5ec;
+}
+
+.booking-schedule {
+  grid-column: 1 / -1;
+  margin-top: 10px;
+}
+
+.booking-schedule h3 {
+  font-size: 24px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.time-slots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.time-slot {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+  color: #eae5ec;
+  font-family: "Geist", sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.time-slot:hover {
+  border-color: var(--accentColor);
+}
+
+.time-slot.selected {
+  background: var(--accentColor);
+  color: #0b080c;
+  border-color: var(--accentColor);
+  font-weight: 600;
+}
+
+.booking-submit {
+  grid-column: 1 / -1;
+  margin-top: 16px;
+  background: var(--accentColor);
+  color: #0b080c;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 40px;
+  font-family: "Geist", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.3s, transform 0.2s;
+}
+
+.booking-submit:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.booking-submit:active {
+  transform: translateY(0);
+}
+
+.booking-confirmation {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.booking-confirmation svg {
+  margin-bottom: 20px;
+}
+
+.booking-confirmation h2 {
+  font-size: 36px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+.booking-confirmation h2 span {
+  color: var(--accentColor);
+}
+
+.booking-confirmation p {
+  opacity: 0.6;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.booking-confirmation .back-link {
+  display: inline-block;
+  margin-top: 30px;
+  color: var(--accentColor);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media only screen and (max-width: 900px) {
+  .booking-container h1 {
+    font-size: 36px;
+  }
+  .booking-pitch {
+    font-size: 16px;
+  }
+  .booking-form {
+    grid-template-columns: 1fr;
+  }
+  .schedule-grid {
+    grid-template-columns: 1fr;
+  }
+  .time-slots {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .booking-container h1 {
+    font-size: 28px;
+  }
+  .booking-container {
+    padding: 40px 0 60px;
+  }
+  .time-slots {
+    grid-template-columns: 1fr;
+  }
+}
