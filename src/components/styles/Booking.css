@@ -421,3 +421,39 @@
     max-height: 140px;
   }
 }
+
+/* WhatsApp Button */
+.booking-whatsapp {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.booking-whatsapp p {
+  font-size: 13px;
+  opacity: 0.5;
+  margin: 0 0 12px 0;
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #25D366;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: "Geist", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.3s, transform 0.2s;
+}
+
+.whatsapp-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  color: #fff;
+}
