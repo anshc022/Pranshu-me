@@ -1,6 +1,12 @@
 import { useState, FormEvent } from "react";
 import { Link } from "react-router-dom";
+import { createClient } from "@supabase/supabase-js";
 import "./styles/Booking.css";
+
+const supabase = createClient(
+  "https://hvtgvihbewmpubnhjelf.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh2dGd2aWhiZXdtcHVibmhqZWxmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzNTM2NTAsImV4cCI6MjA4NjkyOTY1MH0.fsfL85qFG20PMYnteS1eg4tAm9-o6mjIH6owA5enb7w"
+);
 
 const TIME_SLOTS = [
   "09:00 AM",
@@ -15,6 +21,8 @@ const TIME_SLOTS = [
 
 const Booking = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
   const [selectedSlot, setSelectedSlot] = useState("");
   const [formData, setFormData] = useState({
     name: "",
@@ -31,9 +39,28 @@ const Booking = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError("");
+    
+    const { error: dbError } = await supabase.from("bookings").insert({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone || null,
+      business_name: formData.business || null,
+      preferred_date: formData.date,
+      preferred_time: selectedSlot,
+      message: formData.message || null,
+    });
+
+    if (dbError) {
+      setError("Something went wrong. Please try again.");
+      setSubmitting(false);
+    } else {
+      setSubmitted(true);
+      setSubmitting(false);
+    }
   };
 
   // Get tomorrow as min date
@@ -164,9 +191,10 @@ const Booking = () => {
                 />
               </div>
 
-              <button type="submit" className="booking-submit">
-                Book Consultation
+              <button type="submit" className="booking-submit" disabled={submitting}>
+                {submitting ? "Submitting..." : "Book Consultation"}
               </button>
+              {error && <p style={{ color: "#ef4444", marginTop: "10px", textAlign: "center" }}>{error}</p>}
             </form>
           </>
         ) : (
