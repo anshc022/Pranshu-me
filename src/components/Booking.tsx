@@ -1,4 +1,4 @@
-import { useState, FormEvent, useEffect, useRef } from "react";
+import { useState, FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 import bookingHero from "../assets/booking-hero.svg";
