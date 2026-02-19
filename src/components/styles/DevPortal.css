@@ -1,0 +1,431 @@
+/* ─── Animations ─── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ─── Page ─── */
+.dev-page {
+  min-height: 100vh;
+  background-color: var(--backgroundColor);
+  color: #eae5ec;
+  font-family: "Geist", sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* ─── Header ─── */
+.dev-header {
+  display: flex;
+  max-width: var(--cMaxWidth);
+  width: var(--cWidth);
+  justify-content: space-between;
+  padding: 18px 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+  align-items: center;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.dev-header a {
+  color: #ccc;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.dev-header a:hover {
+  color: var(--accentColor);
+}
+
+.dev-header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ─── Container ─── */
+.dev-container {
+  max-width: 900px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  padding: 20px 0 100px;
+}
+
+/* ─── Title ─── */
+.dev-container h1 {
+  font-size: 52px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+  line-height: 1.1;
+  animation: slideUp 0.6s ease-out both;
+}
+
+.dev-container h1 span {
+  color: var(--accentColor);
+  background: linear-gradient(90deg, #c2a4ff 0%, #e0d0ff 50%, #c2a4ff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+.dev-subtitle {
+  font-size: 17px;
+  line-height: 1.7;
+  opacity: 0.5;
+  max-width: 650px;
+  margin-bottom: 48px;
+  animation: slideUp 0.6s ease-out 0.1s both;
+}
+
+/* ─── Cards ─── */
+.dev-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 48px;
+  animation: slideUp 0.6s ease-out 0.15s both;
+}
+
+.dev-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.dev-card-icon {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.dev-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dev-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.5;
+  margin: 0;
+}
+
+/* ─── Register Form ─── */
+.dev-section {
+  animation: slideUp 0.7s ease-out 0.2s both;
+}
+
+.dev-section h2 {
+  font-size: 28px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0 0 24px;
+  letter-spacing: 1px;
+}
+
+.dev-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.dev-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dev-form-group.full {
+  grid-column: 1 / -1;
+}
+
+.dev-form-group label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.4;
+}
+
+.dev-form-group input {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 14px 16px;
+  color: #eae5ec;
+  font-family: "Geist", sans-serif;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+}
+
+.dev-form-group input:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.dev-form-group input:focus {
+  border-color: var(--accentColor);
+  background: rgba(194, 164, 255, 0.04);
+  box-shadow: 0 0 0 3px rgba(194, 164, 255, 0.08);
+}
+
+.dev-submit {
+  grid-column: 1 / -1;
+  background: var(--accentColor);
+  color: #0b080c;
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  font-family: "Geist", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 4px;
+}
+
+.dev-submit:hover {
+  background: #d4bdff;
+  transform: translateY(-1px);
+}
+
+.dev-submit:active {
+  transform: translateY(0);
+}
+
+.dev-submit:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ─── Key Result ─── */
+.key-result {
+  grid-column: 1 / -1;
+  background: rgba(194, 164, 255, 0.06);
+  border: 1px solid rgba(194, 164, 255, 0.15);
+  border-radius: 16px;
+  padding: 28px;
+  animation: slideUp 0.4s ease-out;
+}
+
+.key-result h3 {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accentColor);
+  margin: 0 0 16px;
+}
+
+.key-display {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.key-display code {
+  flex: 1;
+  font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: #4ade80;
+  word-break: break-all;
+}
+
+.copy-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 8px 14px;
+  color: #eae5ec;
+  font-family: "Geist", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.copy-btn:hover {
+  background: rgba(194, 164, 255, 0.15);
+  border-color: var(--accentColor);
+}
+
+.key-warning {
+  font-size: 13px;
+  opacity: 0.5;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.key-warning strong {
+  color: #f59e0b;
+  opacity: 1;
+}
+
+/* ─── Error ─── */
+.dev-error {
+  grid-column: 1 / -1;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 12px;
+  padding: 14px 18px;
+  color: #fca5a5;
+  font-size: 14px;
+  animation: slideUp 0.3s ease-out;
+}
+
+/* ─── Code Examples ─── */
+.dev-docs {
+  margin-top: 56px;
+  animation: slideUp 0.7s ease-out 0.3s both;
+}
+
+.dev-docs h2 {
+  font-size: 28px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0 0 24px;
+  letter-spacing: 1px;
+}
+
+.code-block {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.code-lang {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  opacity: 0.4;
+}
+
+.code-copy {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 12px;
+  cursor: pointer;
+  font-family: "Geist", sans-serif;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.code-copy:hover {
+  color: var(--accentColor);
+}
+
+.code-body {
+  padding: 16px;
+  overflow-x: auto;
+}
+
+.code-body pre {
+  margin: 0;
+  font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #e0d0ff;
+  white-space: pre;
+}
+
+.code-body .cm { color: rgba(255,255,255,0.3); }
+.code-body .kw { color: #c2a4ff; }
+.code-body .str { color: #4ade80; }
+.code-body .fn { color: #60a5fa; }
+
+/* ─── API Info Grid ─── */
+.api-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.api-info-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.api-info-card h4 {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  opacity: 0.4;
+  margin: 0 0 8px;
+}
+
+.api-info-card p {
+  font-size: 14px;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.api-info-card code {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 13px;
+  color: var(--accentColor);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .dev-container h1 { font-size: 36px; }
+  .dev-grid { grid-template-columns: 1fr; }
+  .dev-form { grid-template-columns: 1fr; }
+  .dev-form-group.full { grid-column: 1; }
+  .key-result, .dev-error, .dev-submit { grid-column: 1; }
+  .api-info { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .dev-container h1 { font-size: 28px; }
+  .dev-subtitle { font-size: 14px; }
+  .key-display { flex-direction: column; }
+  .key-display code { font-size: 12px; }
+}
