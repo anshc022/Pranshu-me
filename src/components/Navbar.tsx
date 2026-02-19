@@ -112,6 +112,11 @@ const Navbar = () => {
               <HoverLinks text="BOOK" />
             </a>
           </li>
+          <li>
+            <a href="/ai" data-cursor="disable" style={{ color: '#c2a4ff' }}>
+              <HoverLinks text="AI" />
+            </a>
+          </li>
         </ul>
       </div>
 

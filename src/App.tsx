@@ -5,6 +5,7 @@ import "./App.css";
 const CharacterModel = lazy(() => import("./components/Character"));
 const MainContainer = lazy(() => import("./components/MainContainer"));
 const Booking = lazy(() => import("./components/Booking"));
+const ChatBot = lazy(() => import("./components/ChatBot"));
 import { LoadingProvider } from "./context/LoadingProvider";
 
 const App = () => {
@@ -30,6 +31,14 @@ const App = () => {
           element={
             <Suspense>
               <Booking />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/ai"
+          element={
+            <Suspense>
+              <ChatBot />
             </Suspense>
           }
         />
