@@ -11,10 +11,10 @@ interface Message {
 }
 
 const SUGGESTIONS = [
-  { icon: "💡", text: "Tell me about Pranshu's projects" },
-  { icon: "⚡", text: "What tech stack does he use?" },
-  { icon: "🎯", text: "How can I hire Pranshu?" },
-  { icon: "🧠", text: "What makes a great developer?" },
+  { icon: "💡", text: "Explain quantum computing simply" },
+  { icon: "✍️", text: "Write a poem about the stars" },
+  { icon: "💻", text: "Help me debug my Python code" },
+  { icon: "🧠", text: "What's the meaning of life?" },
 ];
 
 const ChatBot = () => {
@@ -233,11 +233,11 @@ const ChatBot = () => {
                 </svg>
               </div>
               <h1>
-                Meet <span>Nebula</span>
+                <span>Nebula</span> AI
               </h1>
               <p>
-                Pranshu's personal AI assistant — powered by Mistral, running on
-                a private GPU server. Ask anything.
+                Your private AI assistant — powered by Mistral on a dedicated
+                GPU server. Fast, free, and no data collection. Ask anything.
               </p>
               <div className="suggestion-cards">
                 {SUGGESTIONS.map((s, i) => (
