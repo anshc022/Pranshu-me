@@ -29,10 +29,13 @@ const Navbar = () => {
       let element = elem as HTMLAnchorElement;
       element.addEventListener("click", (e) => {
         if (window.innerWidth > 1024) {
-          e.preventDefault();
           let elem = e.currentTarget as HTMLAnchorElement;
           let section = elem.getAttribute("data-href");
-          smoother.scrollTo(section, true, "top top");
+          // Only intercept scroll-anchor links, not route links
+          if (section) {
+            e.preventDefault();
+            smoother.scrollTo(section, true, "top top");
+          }
         }
       });
     });
